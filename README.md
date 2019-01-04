@@ -1,4 +1,4 @@
-# jspsych-voice-recorder
+# jspsych-voice-recorder.js
 Custom jsPsych plugin to record sound snippets and save them to server as mp3 files.
 
 It is based on https://github.com/mattdiamond/Recorderjs for recording and some other thing that I will add for saving files as mp3. 
