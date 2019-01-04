@@ -10,6 +10,9 @@ The plugin currently only works on Chrome. It can technically run on Firefox and
 
 Even is Chrome is used, audio quality may start to deterioriate after a long series of recording taken in sequence (e.g. over 100 snippets of 6 seconds each). 
 
+  This should come out as code
+    Or maybe this
+
 
 
 
