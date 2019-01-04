@@ -1,7 +1,7 @@
 # jspsych-voice-recorder
 Custom jsPsych plugin to record sound snippets and save them to server as mp3 files.
 
-It is based on https://github.com/mattdiamond/Recorderjs
+It is based on https://github.com/mattdiamond/Recorderjs for recording and some other thing that I will add for saving files as mp3. 
 
 In order for the plugin to work, the main experiment file needs to contain a request to access the user's microphone (example included). The experiment will only start once the audio stream has been initiated. 
 
