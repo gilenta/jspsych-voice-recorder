@@ -1,10 +1,10 @@
 /*
- * Plugin that records audio clips, converts them to mp3 and saves them to the server 
- */
-
-/* Add jsPsych licence / plugin blurb */
-
-/*License (MIT)
+jsPsych plugin that records audio clips, converts them to mp3 and saves them to the server
+Giulia Bovolenta
+Based on Recorder.js by Matt Diamond
+*/
+/*
+License (MIT)
 Copyright © 2013 Matt Diamond
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
