@@ -93,7 +93,7 @@
 
         var voiceTrial1 = {
             type: "voice-recorder",
-            prompt: '<p>"This is one sentence"</p>',
+            prompt: '<div><h3>READ SENTENCE OUT LOUD:</h3><br><p>"This is a sentence"</p></div>',
             trial_duration: rec_duration,
             stim_num: 1,
             on_finish: function(data) {
@@ -103,7 +103,7 @@
 
         var voiceTrial2 = {
             type: "voice-recorder",
-            prompt: '<p>"This is another sentence"</p>',
+            prompt: '<div><h3>READ SENTENCE OUT LOUD:</h3><br><p>"This is another sentence"</p></div>',
             trial_duration: rec_duration,
             stim_num: 2,
             on_finish: function(data) {
