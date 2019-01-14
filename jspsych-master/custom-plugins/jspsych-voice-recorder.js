@@ -1,7 +1,7 @@
 /*
 jsPsych plugin that records audio clips, converts them to mp3 and saves them to the server
 Giulia Bovolenta
-Based on Recorder.js by Matt Diamond
+Based on Recorder.js by Matt Diamond and Recordmp3js by Audior
 */
 /*
 License (MIT)
