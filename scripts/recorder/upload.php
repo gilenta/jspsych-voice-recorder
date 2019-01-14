@@ -7,28 +7,9 @@ $decodedData = base64_decode($data);
 // print out the raw data, 
 //echo ($decodedData);
 $subject = $_POST['subjectID']; 
-$filename = $_POST['fname'];//'audio_recording_' . date( 'Y-m-d-H-i-s' ) .'.mp3';
+$filename = $_POST['fname'];
 
-// create data directory if not already present
-/*
-if(!is_dir('data')){
-	$res = mkdir('data',0777); 
-}
-
-
-// create directory for participant if not already present
-if(!is_dir('data/'.$subject.'/recordings',0777)) {
-    $res =  mkdir('data/'.$subject.'/recordings',0777);
-}
-
-// create recordings sub-directory if not already present
-if(!is_dir('data/'.$subject,0777)) {
-    $res =  mkdir('data/'.$subject,0777);
-}
-
-*/
-
-// write the data out to the file
+// write data to mp3 file
 $fp = fopen('../../data/recordings/'.$subject.'/'.$filename, 'wb');
 fwrite($fp, $decodedData);
 fclose($fp);
