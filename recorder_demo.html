@@ -169,18 +169,14 @@
             console.log(input);
             console.log('Media stream created.' );
             console.log("input sample rate " +input.context.sampleRate);
-
-            // Feedback!
-            //input.connect(audio_context.destination);
-            //console.log('Input connected to audio context destination.');
-
-            /* The experiment needs to be launched from inside  the getUserMedia callback, or else it will try to execute before the audio stream is ready */
-
             
         }
         
         
-        /* Event listener: on button click, resume audio stream and launch experiment*/
+        /* 
+        Note: current (December 2018) Chrome standards require user input in order to keep using media stream
+        On clicking #start-button, resume audio stream and launch experiment
+        */
         
         document.querySelector('#start-button').addEventListener('click', function() {
             audio_context.resume().then(() => {
