@@ -181,14 +181,14 @@
             // Feedback!
             //input.connect(audio_context.destination);
             //console.log('Input connected to audio context destination.');
-
-            /* The experiment needs to be launched from inside  the getUserMedia callback, or else it will try to execute before the audio stream is ready */
-
             
         }
         
         
-        /* Event listener: on button click, resume audio stream and launch experiment*/
+        /* 
+        As of December 2018, Chrome requires user interaction to use audio stream once created
+        Event listener: on button click, resume audio stream and launch experiment
+        */
         
         document.querySelector('#start-button').addEventListener('click', function() {
             audio_context.resume().then(() => {
