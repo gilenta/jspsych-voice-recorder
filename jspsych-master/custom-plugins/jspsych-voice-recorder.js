@@ -1,5 +1,5 @@
 /*
- * Voice recorder 
+ * Plugin that records audio clips, converts them to mp3 and saves them to the server 
  */
 
 jsPsych.plugins["voice-recorder"] = (function () {
@@ -31,18 +31,6 @@ jsPsych.plugins["voice-recorder"] = (function () {
         pretty_name: 'Stimulus number',
         default: 'test',
         description: 'Identifier number for trial stimulus'
-      },
-      ex_part: {
-        type: jsPsych.plugins.parameterType.STRING,
-        pretty_name: 'Experiment part',
-        default: '',
-        description: 'Name / number of current experiment part, to be appended to the sound recording filename'
-      },
-      background: {
-        type: jsPsych.plugins.parameterType.STRING,
-        pretty_name: 'Background colour',
-        default: 'white',
-        description: 'Option to change background colour for this trial'
       }
     }
   }
@@ -54,12 +42,7 @@ jsPsych.plugins["voice-recorder"] = (function () {
       
     
    // ------ VISUAL FEATURES ------ //
-      
-   // Set background colour
-   var content = document.querySelector('.jspsych-content-wrapper');
-   content.style.backgroundColor = trial.background;
-      
-      
+   
    // show prompt if there is one
    if (trial.prompt !== "") {
       display_element.innerHTML = trial.prompt;
@@ -67,15 +50,14 @@ jsPsych.plugins["voice-recorder"] = (function () {
       
             
    
-    
   
    // ------ SOUND RECORDER ----- //
         
   
   
       
-  var WORKER_PATH = '../../scripts/recorder/recorderWorker.js';
-  var encoderWorker = new Worker('../../scripts/recorder/mp3Worker.js');
+  var WORKER_PATH = 'scripts/recorder/recorderWorker.js';
+  var encoderWorker = new Worker('scripts/recorder/mp3Worker.js');
   console.log("New encoder worker created");
 
   var Recorder = function(source, cfg){
@@ -250,14 +232,14 @@ jsPsych.plugins["voice-recorder"] = (function () {
 		var reader = new FileReader();
 		reader.onload = function(event){
 			var fd = new FormData();
-			var mp3Name = encodeURIComponent('Id_' + window.subjectID + '_' + trial.ex_part + '_' + ('000' + trial.stim_num).slice(-3)  + '.mp3');
+			var mp3Name = encodeURIComponent('Id_' + window.subjectID + '_' + ('000' + trial.stim_num).slice(-3)  + '.mp3');
 			console.log("mp3name = " + mp3Name);
             fd.append('subjectID', window.subjectID); // Add subject ID
 			fd.append('fname', mp3Name);
 			fd.append('data', event.target.result);
 			$.ajax({
 				type: 'POST',
-				url: '../../scripts/recorder/upload.php',
+				url: 'scripts/recorder/upload.php',
 				data: fd,
 				processData: false,
 				contentType: false
@@ -319,7 +301,7 @@ jsPsych.plugins["voice-recorder"] = (function () {
 
     // data saving
     var trial_data = {
-      stim_num: trial.stim_num
+      trial_duration: trial.trial_duration
     };
 
                    
